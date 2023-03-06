@@ -19,6 +19,9 @@ jobs:
         echo "inside install section"
         python --version
         sudo apt-get install python3-pip
+        echo -e "\n---------"
+        which pip3
+        echo -e "\n---------"
         pip3 install pre-commit
         echo "repos:
             - repo: https://github.com/Yelp/detect-secrets
@@ -28,7 +31,7 @@ jobs:
         echo "### pre-commit-config.yaml data"
         cat .pre-commit-config.yaml
       
-        pre-commit install pre-commit        
+        pre-commit install    
         pre-commit install pre-push
       
         ls -ltr .git/hooks/
