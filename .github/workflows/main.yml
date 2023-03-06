@@ -5,8 +5,10 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
-    - name: Set up python
+    - name: checkout
       uses: actions/checkout@v3
+
+    - name: Ser python env
       uses: actions/setup-python@v2
       with:
         python-version: [3.9]
