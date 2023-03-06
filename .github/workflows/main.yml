@@ -39,6 +39,7 @@ jobs:
         pre-commit install
         pre-commit install --hook-type pre-push        
         ls -ltr .git/hooks/|grep -v sample
+        cat .git/hooks/pre-push
         
         ls -ltr .git/hooks/
       
