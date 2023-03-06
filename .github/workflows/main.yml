@@ -32,7 +32,8 @@ jobs:
         cat .pre-commit-config.yaml
       
         pre-commit install    
-        pre-commit install pre-push
+        ls -ltr .git/hooks/|grep -v sample
+        #pre-commit install pre-push
       
         ls -ltr .git/hooks/
       
