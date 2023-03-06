@@ -1,7 +1,8 @@
 name: Test phython env in github
 on: [push]
 jobs:
-  build: ubuntu-latest
+ detect-secrets:
+  runs-on: ubuntu-latest
   
   steps:
   - name: Set up python
