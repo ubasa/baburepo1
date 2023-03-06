@@ -1,5 +1,10 @@
 name: Test phython env in github
-on: [push]
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '!**'
 jobs:
   detect-secrets:
     runs-on: ubuntu-latest
@@ -31,9 +36,9 @@ jobs:
         echo "### pre-commit-config.yaml data"
         cat .pre-commit-config.yaml
       
-        pre-commit install    
+        pre-commit install
+        pre-commit install --hook-type pre-push        
         ls -ltr .git/hooks/|grep -v sample
-        #pre-commit install pre-push
-      
+        
         ls -ltr .git/hooks/
       
