@@ -8,14 +8,19 @@ jobs:
     - name: checkout
       uses: actions/checkout@v3
 
-    - name: Ser python env
+    - name: Set python env
       uses: actions/setup-python@v2
       with:
         python-version: '3.9.x'
+      run: |
+        python --version
       
     - name: Install git-secret packages
       run: |
-        python -m pip3 install --upgrade pip3
+        sudo apt-get update
+        echo "inside install section"
+        python --version
+        sudo apt-get install python3-pip
         pip3 install pre-commit
         echo "repos:
             - repo: https://github.com/Yelp/detect-secrets
