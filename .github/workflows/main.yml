@@ -1,21 +1,29 @@
-name: GitGuardian scan
-
-on: [push, pull_request]
-
+name: Test phython env in github
+on: [push]
 jobs:
-  scanning:
-    name: GitGuardian scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 # fetch all history so multiple commits can be scanned
-      - name: GitGuardian scan
-        uses: GitGuardian/ggshield/actions/secret@main
-        env:
-          GITHUB_PUSH_BEFORE_SHA: ${{ github.event.before }}
-          GITHUB_PUSH_BASE_SHA: ${{ github.event.base }}
-          GITHUB_PULL_BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          GITHUB_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
-          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
+  build: ubuntu-latest
+  
+  steps:
+  - name: Set up python
+  - uses: actions/checkout@v3
+    uses: actions/setup-python@v2
+    with:
+      python-version: [3.9]
+      
+  - name: Install git-secret packages
+    run: |
+      python -m pip3 install --upgrade pip3
+      pip3 install pre-commit
+      echo "repos:
+            - repo: https://github.com/Yelp/detect-secrets
+              rev: v1.3.0
+              hooks:
+              - id: detect-secrets" > .pre-commit-config.yaml
+      echo "### pre-commit-config.yaml data"
+      cat .pre-commit-config.yaml
+      
+      pre-commit install pre-commit        
+      pre-commit install pre-push
+      
+      ls -ltr .git/hooks/
+      
