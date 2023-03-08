@@ -54,4 +54,6 @@ jobs:
     - name: using hooks
       run: |
         git branch;git status;git diff
-      
+        git add .
+        git commit -m"adding inside action"
+        git push -u origin master      
