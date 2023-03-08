@@ -43,5 +43,5 @@ jobs:
         
         ls -ltr .git/hooks/
         
-        ls -ltr
+        ls -ltr;cat abc
       
