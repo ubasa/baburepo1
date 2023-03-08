@@ -50,7 +50,10 @@ jobs:
         ls -ltr;cat abc;echo -e "\n"
         sed -i '/new_password/d' abc;
         cat abc
-    
+        echo -e "\n ---------- \n"
+        git config --global user.email "ubasa2014@gmail.com"
+        git config --global user.name "ubasa"
+  
     - name: using hooks
       run: |
         git branch;git status;git diff
