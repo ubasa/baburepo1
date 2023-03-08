@@ -37,11 +37,18 @@ jobs:
         cat .pre-commit-config.yaml
       
         pre-commit install
-        pre-commit install --hook-type pre-push        
+        pre-commit install --hook-type pre-push   
+        
+    - name: checking hook files
+      run: |
         ls -ltr .git/hooks/|grep -v sample
         cat .git/hooks/pre-push
-        
         ls -ltr .git/hooks/
         
-        ls -ltr;cat abc
+    - name: checking secret files
+      run: |
+        ls -ltr;cat abc;echo -e "\n"
+        sed '/new_password/d' abc;
+        cat abc
+        
       
