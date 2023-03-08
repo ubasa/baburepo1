@@ -48,7 +48,7 @@ jobs:
     - name: checking secret files
       run: |
         ls -ltr;cat abc;echo -e "\n"
-        sed '/new_password/d' abc;
+        sed -i '/new_password/d' abc;
         cat abc
         
       
