@@ -1,10 +1,14 @@
 name: Test phython env in github
 on:
-  push:
+-  push:
     branches:
       - '**'
     tags:
       - '!**'
+-  pull_request:
+     branches:
+      - '**'
+
 jobs:
   detect-secrets:
     runs-on: ubuntu-latest
