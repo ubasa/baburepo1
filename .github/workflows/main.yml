@@ -49,6 +49,7 @@ jobs:
       run: |
         ls -ltr;cat abc;echo -e "\n"
         #sed -i '/new_password/d' abc;
+        echo "#new_password = "AKIAHGGHDJFKGLGMFNJXM"" >>abc
         cat abc
         echo -e "\n ---------- \n"
         git config --global user.email "ubasa2014@gmail.com"
