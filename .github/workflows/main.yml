@@ -1,10 +1,10 @@
 name: Test phython env in github
 on:
-  push:
-    branches:
-      - '**'
-    tags:
-      - '!**'
+#  push:
+#    branches:
+#      - '**'
+#    tags:
+#      - '!**'
   pull_request:
     branches:
       - '**'
