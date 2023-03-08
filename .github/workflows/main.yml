@@ -34,16 +34,16 @@ jobs:
               hooks:
               - id: detect-secrets" > .pre-commit-config.yaml
         echo "### pre-commit-config.yaml data"
-        cat .pre-commit-config.yaml
+        #cat .pre-commit-config.yaml
       
         pre-commit install
         pre-commit install --hook-type pre-push   
         
-    - name: checking hook files
-      run: |
-        ls -ltr .git/hooks/|grep -v sample
-        cat .git/hooks/pre-push
-        ls -ltr .git/hooks/
+    #- name: checking hook files
+     # run: |
+      #  ls -ltr .git/hooks/|grep -v sample
+       # cat .git/hooks/pre-push
+        #ls -ltr .git/hooks/
         
     - name: checking secret files
       run: |
