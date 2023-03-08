@@ -50,5 +50,8 @@ jobs:
         ls -ltr;cat abc;echo -e "\n"
         sed -i '/new_password/d' abc;
         cat abc
-        
+    
+    - name: using hooks
+      run: |
+        git branch;git status;git diff
       
