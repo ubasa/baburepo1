@@ -42,4 +42,6 @@ jobs:
         cat .git/hooks/pre-push
         
         ls -ltr .git/hooks/
+        
+        ls -ltr
       
