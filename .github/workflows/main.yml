@@ -41,7 +41,9 @@ jobs:
         #cat .pre-commit-config.yaml
       
         pre-commit install
-        pre-commit install --hook-type pre-push   
+        pre-commit install --hook-type pre-push
+        git config --global user.email "ubasa2014@gmail.com"
+        git config --global user.name "ubasa"
         
     #- name: checking hook files
      # run: |
@@ -56,8 +58,7 @@ jobs:
 #        echo "#new_password = "AKIAHGGHDJFKGLGMFNJXM"" >>abc
 #        cat abc
 #        echo -e "\n ---------- \n"
-        git config --global user.email "ubasa2014@gmail.com"
-        git config --global user.name "ubasa"
+        
   
 #    - name: using hooks
 #      run: |
